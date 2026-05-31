@@ -1,5 +1,6 @@
 package praktikum.client;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import praktikum.model.Order;
 
@@ -9,6 +10,7 @@ public class OrderClient {
 
     private static final String ORDERS = "/api/orders";
 
+    @Step("Создание заказа без авторизации")
     public ValidatableResponse createOrder(Order order) {
         return given()
                 .header("Content-type", "application/json")
@@ -17,6 +19,7 @@ public class OrderClient {
                 .then();
     }
 
+    @Step("Создание заказа авторизованным пользователем")
     public ValidatableResponse createOrderAuthorized(Order order, String token) {
         return given()
                 .header("Content-type", "application/json")

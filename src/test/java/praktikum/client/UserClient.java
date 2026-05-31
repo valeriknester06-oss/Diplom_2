@@ -1,5 +1,6 @@
 package praktikum.client;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import praktikum.model.LoginUser;
 import praktikum.model.User;
@@ -11,6 +12,7 @@ public class UserClient {
     private static final String REGISTER = "/api/auth/register";
     private static final String LOGIN = "/api/auth/login";
 
+    @Step("Создание пользователя")
     public ValidatableResponse createUser(User user) {
         return given()
                 .header("Content-type", "application/json")
@@ -19,6 +21,7 @@ public class UserClient {
                 .then();
     }
 
+    @Step("Авторизация пользователя")
     public ValidatableResponse loginUser(LoginUser loginUser) {
         return given()
                 .header("Content-type", "application/json")
