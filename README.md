@@ -95,3 +95,19 @@ mvn clean test
 ## Генерация Allure-отчета
 
 mvn allure:serve
+## Конфигурация Maven
+
+Основные зависимости проекта находятся в файле:
+
+```text
+pom.xml
+```
+
+В проекте используются зависимости:
+
+* junit
+* rest-assured
+* allure-junit4
+* lombok
+* jackson-databind
+* javafaker
